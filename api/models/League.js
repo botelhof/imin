@@ -16,11 +16,11 @@ module.exports = {
       type: 'string',
       required: true,
       description: 'Full representation of the league\'s name',
-      maxLength: 120,
+      maxLength: 80,
       example: 'Mondays, 20h at Olivais'
     },
 
-    fulldescription: {
+    fullDescription: {
       type: 'string',
       description: 'Full representation of the league\'s description',
       maxLength: 500,
@@ -52,7 +52,12 @@ module.exports = {
     periodicals: {
       collection: 'periodical',
       via: 'league'
-    }
+    },
+
+    userLeagueRoles: {
+      collection: 'userLeagueRole',
+      via: 'league'
+    },
 
   },
 

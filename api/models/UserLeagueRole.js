@@ -1,7 +1,7 @@
 /**
- * Periodical.js
+ * UserLeagueRole.js
  *
- * League periods
+ * User league role
  */
 
 module.exports = {
@@ -11,35 +11,27 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    isEveryDays: {
-      type: 'boolean',
-      defaultsTo: false,
-      description: 'Every days of the week',
-      extendedDescription:
-      `Every days of the week`
-    },
-
-    isOneDayWeek: {
-      type: 'boolean',
-      defaultsTo: false,
-      description: 'Every week',
-      extendedDescription:
-      `Every week`
-    },
-
-    isOneDayMonth: {
-      type: 'boolean',
-      defaultsTo: false,
-      description: 'Every month',
-      extendedDescription:
-      `Every month`
-    },
-
-    periodicalStartsAt: {
-      type: 'number',
+    role: {
+      type: 'string',
       required: true,
-      description: 'A JS timestamp (epoch ms) representing the moment when this start to count',
-      example: 1502844074211
+      isIn: ['Player', 'Guest', 'Organizer', 'Treasurer'],
+      description: 'Full representation of the role\'s name',
+      maxLength: 80,
+      example: 'Player'
+    },
+
+    fullDescription: {
+      type: 'string',
+      description: 'Full representation of the role\'s description',
+      maxLength: 500,
+      example: 'Take care of the money'
+    },
+
+    isActive: {
+      type: 'boolean',
+      defaultsTo: true,
+      description: 'Is active at the moment',
+      extendedDescription: `Is active at the moment`
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -53,7 +45,11 @@ module.exports = {
     // n/a
     league: {
       model: 'league',
-    }
+    },
+
+    user: {
+      model: 'user',
+    },
   },
 
 

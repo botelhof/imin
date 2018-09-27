@@ -1,27 +1,43 @@
-<div id="account-overview" v-cloak>
+<div id="leagues-overview" v-cloak>
   <div class="container">
     <h1>My Leagues</h1>
     <hr/>
     <div class="row">
         
-      <% userLeagues.forEach(function(league)  { %>
+      <% userLeagues && userLeagues.length > 0 && userLeagues.forEach(function(league)  { %>
         <div class="col-md-2" style="margin: 20px;">
           <div class="leagueWrapper" style="padding: 2px;">
             <div class="leagueWrapperTop">
                 <span class="leagueFullName">
                     <i class="fab fa-medrt" title="<%= league.fullName %>" style="font-size: 20px;"></i>
-                  <%= league.fullName %>
+                    <span style="vertical-align: text-bottom;">
+                        <%= league.fullName %>
+                    </span>
                 </span>
+                <ajax-button class="btn btn-sm btn-outline-info account-settings-button" @click="goToLeague(<%= league.id %>)">
+                  <!-- <span slot="syncing-state">
+                    <span v-if="syncingOpenCheckout">Connecting...</span>
+                    <span v-else>Updating...</span>
+                  </span> -->
+                  <span slot="default">Enter</span>
+                </ajax-button>
             </div>
             <div class="leagueWrapperBottom">
                 <span class="leagueNextGame">
-                    <i class="fab fa-medrt" style="font-size: 20px;"></i>
-                    <%= league.periodicals.length %>
+                    <i class="far fa-calendar-alt" style="font-size: 15px;"></i>
+                    <span style="vertical-align: text-bottom;" id="countdown_<%= league.id %>">
+                    </span>
                 </span>
             </div>
           </div>
         </div>
       <% }); %>
+      <% if (!userLeagues || userLeagues.length == 0) { %>
+        <div class="col-md-2" style="margin: 23px;">
+            <i class="far fa-frown" style="font-size: 20px;"></i>
+          <span>You don't have any league at this moment</span>
+        </div>
+      <% } %>
     </div>
   </div>
 </div>
