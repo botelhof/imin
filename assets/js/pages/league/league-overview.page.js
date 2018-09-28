@@ -31,6 +31,23 @@ parasails.registerPage('league-overview', {
     //   }
     // }
 
+    $(document).ready(function(){
+      let map = new GMaps({
+        el: '#locationMap',
+        lat: 38.759363,
+        lng: -9.108276,
+      });
+
+      map.drawOverlay({
+        lat: map.getCenter().lat(),
+        lng: map.getCenter().lng(),
+        content: '<div class="overlay">Lima<div class="overlay_arrow above"></div></div>',
+        verticalAlign: 'top',
+        horizontalAlign: 'center'
+      });
+    });
+
+    
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗

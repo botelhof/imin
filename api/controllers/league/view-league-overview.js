@@ -26,11 +26,10 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     
-    let league = await League.findOne({id: inputs.leagueId}).populate('users').populate('periodicals')
-    console.log('league data: ', league)
+    let leagueData = await League.findOne({id: inputs.leagueId}).populate('users').populate('periodicals')
+    console.log('league data: ', leagueData)
 
-
-    return exits.success()
+    return exits.success({leagueData: leagueData})
 
   }
 };

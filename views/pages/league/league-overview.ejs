@@ -1,8 +1,16 @@
-<div id="leagues-overview" v-cloak>
+<div id="league-overview" v-cloak>
   <div class="container">
-    <h1>League</h1>
+    <h2>{{leagueData.fullName}}</h2>
     <hr/>
-    
+    <div class="row mb-3">
+      <div class="col-sm-5">
+        <h4>Description</h4>
+        <p>{{leagueData.fullDescription}}</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div id="locationMap" class="locationMap"></div>
+    </div>
   </div>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

@@ -35,7 +35,7 @@ module.exports.routes = {
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
   'GET /leagues':            { action: 'league/view-leagues-overview' },
-  'GET /league':            { action: 'league/view-league-overview' },
+  'GET /league':             { action: 'league/view-league-overview' },
 
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
